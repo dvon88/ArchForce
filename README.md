@@ -1,3 +1,11 @@
+This is a fork of ArchTitus by ChrisTitusTech (subscribe to his channel and support) that is aimed at Salesforce development. Auto-installed packages from the original were modified to remove unnecessary packages and add in the following...
+SFDX CLI (obviously)
+VSCode (not OSS code as that does not natively support the MS Marketplace extensions where SF extensions live)
+Google Chrom and Firefox (Brave does not always play well with SF in my experience)
+JDK11 (required for SF development)
+x11-ssh-askpass (I repeatedly had issues with ssh-askpass not working, so git wouldn't work. Installed this and it works, just asks for ssh password, nbd)
+...and others are coming as I improve on the script
+
 # ArchTitus Installer Script
 
 <img src="https://i.imgur.com/YiNMnan.png" />
