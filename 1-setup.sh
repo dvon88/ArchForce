@@ -196,6 +196,7 @@ PKGS=(
 'winetricks'
 'xdg-desktop-portal-kde'
 'xdg-user-dirs'
+'x11-ssh-askpass' #needed for git ssh. Missing ssh_askpass
 'zeroconf-ioslave'
 'zip'
 'zsh'
