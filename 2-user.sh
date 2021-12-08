@@ -53,6 +53,10 @@ PKGS=(
 'visual-studio-code-bin'
 'zoom' # video conferences
 'snap-pac'
+'slack'
+'teams'
+'google-chat'
+'timeshift'
 )
 
 for PKG in "${PKGS[@]}"; do
