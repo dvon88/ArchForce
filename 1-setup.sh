@@ -136,7 +136,7 @@ PKGS=(
 'linux-firmware'
 'linux-headers'
 'lsof'
-'lutris'
+#'lutris' # Gaming not needed
 'lzop'
 'm4'
 'make'
@@ -174,7 +174,7 @@ PKGS=(
 'sddm-kcm'
 'snapper'
 'spectacle'
-'steam'
+#'steam' # Gaming not needed
 'sudo'
 'swtpm'
 'synergy'
