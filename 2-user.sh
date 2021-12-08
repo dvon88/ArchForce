@@ -66,6 +66,7 @@ konsave -i $HOME/ArchTitus/kde.knsv
 sleep 1
 konsave -a kde
 
+echo "Installing SFDX CLI ..." && sleep 5
 # INSTALL SALESFORCE CLI
 wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
 mkdir ~/sfdx
