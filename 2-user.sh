@@ -62,5 +62,20 @@ konsave -i $HOME/ArchTitus/kde.knsv
 sleep 1
 konsave -a kde
 
+yay jdk11
+
+# INSTALL SALESFORCE CLI
+wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+mkdir ~/sfdx
+tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
+PATH=~/sfdx/bin:$PATH
+
+# INSTALL MICROSOFT VSCODE FROM SOURCE
+# CODE-OSS IS OPEN SOURCE AND DOES NOT NATIVELY SUPPORT SALESFORCE EXTENSIONS. THIS DOES
+git clone https://aur.archlinux.org/visual-studio-code-bin.git
+cd visual-studio-code-bin/
+makepkg -s
+find . -type f -name "*.zst" | xargs pacman -U
+
 echo -e "\nDone!\n"
 exit
