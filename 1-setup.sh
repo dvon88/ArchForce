@@ -122,7 +122,8 @@ PKGS=(
 'haveged'
 'htop'
 'iptables-nft'
-'jdk-openjdk' # Java 17
+#'jdk-openjdk' # Java 17
+#'jdk'
 'kate'
 'kcodecs'
 'kcoreaddons'
@@ -211,7 +212,7 @@ PKGS=(
 
 # yay -S --noconfirm jdk
 # Set default java version to Java 11
-archlinux-java set java-11-openjdk
+#archlinux-java set java-11-openjdk
 
 for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"
