@@ -210,10 +210,6 @@ PKGS=(
 'zsh-autosuggestions'
 )
 
-# yay -S --noconfirm jdk
-# Set default java version to Java 11
-#archlinux-java set java-11-openjdk
-
 for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"
     sudo pacman -S "$PKG" --noconfirm --needed

@@ -67,6 +67,11 @@ for PKG in "${PKGS[@]}"; do
     yay -S --noconfirm $PKG
 done
 
+# Download JDK 11
+ pacman  -Suy jre11-openjdk
+# Set default java version to Java 11
+archlinux-java set java-11-openjdk
+
 export PATH=$PATH:~/.local/bin
 cp -r $HOME/ArchForce/dotfiles/* $HOME/.config/
 pip install konsave
