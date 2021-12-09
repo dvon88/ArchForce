@@ -122,7 +122,7 @@ PKGS=(
 'haveged'
 'htop'
 'iptables-nft'
-#'jdk-openjdk' # Java 17
+'jdk-openjdk' # Java 17
 'kate'
 'kcodecs'
 'kcoreaddons'
@@ -209,6 +209,10 @@ PKGS=(
 'zsh-autosuggestions'
 )
 
+# yay -S --noconfirm jdk
+# Set default java version to Java 11
+archlinux-java set java-11-openjdk
+
 for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"
     sudo pacman -S "$PKG" --noconfirm --needed
@@ -257,4 +261,3 @@ then
 else
 	echo "You are already a user proceed with aur installs"
 fi
-

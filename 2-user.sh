@@ -35,7 +35,6 @@ PKGS=(
 'firefox'
 'github-desktop-bin' # Github Desktop sync
 'google-chrome' # Google Chrome for best Salesforce compatibility
-'jdk11' #JDK 11 required for Salesforce development
 'lightly-git'
 'lightlyshaders-git'
 'mangohud' # Gaming FPS Counter
