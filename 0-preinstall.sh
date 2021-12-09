@@ -97,6 +97,9 @@ reboot now
 ;;
 esac
 
+echo "Mounting target in 3 Seconds ..." && sleep 1
+echo "Mounting target in 2 Seconds ..." && sleep 1
+echo "Mounting target in 1 Second ..." && sleep 1    
 # mount target
 mount -t btrfs -o subvol=@ -L ROOT /mnt
 mkdir /mnt/boot
