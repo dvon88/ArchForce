@@ -110,6 +110,7 @@ PKGS=(
 'gcc'
 'gimp' # Photo editing
 'git'
+'github-cli' # Newer github CLI
 'gparted' # partition management
 'gptfdisk'
 'grub'
