@@ -34,6 +34,8 @@ cd ArchForce
 This is completely automated arch install of the KDE desktop environment on arch using various packages I typically use for Salesforce development, including some
 communcation tools.
 
+This install stays in line with using terminal for all downloads and updates, so use ```pacman``` or ```yay``` to download/install/update programs!
+
 ## Troubleshooting
 
 __[Arch Linux Installation Guide](https://github.com/rickellis/Arch-Linux-Install-Guide)__
