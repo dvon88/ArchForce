@@ -57,18 +57,39 @@ echo "THIS WILL FORMAT AND DELETE ALL DATA ON THE DISK"
 read -p "are you sure you want to continue (Y/N):" formatdisk
 case $formatdisk in
 
+echo "Formatting disk in 3 Seconds ..." && sleep 1
+echo "Formatting disk in 2 Seconds ..." && sleep 1
+echo "Formatting disk in 1 Second ..." && sleep 1
 y|Y|yes|Yes|YES)
 echo "--------------------------------------"
 echo -e "\nFormatting disk...\n$HR"
 echo "--------------------------------------"
 
 # disk prep
+echo "SGDISK phase 1 in 3 Seconds ..." && sleep 1
+echo "SGDISK phase 1 in 2 Seconds ..." && sleep 1
+echo "SGDISK phase 1 in 1 Second ..." && sleep 1
 sgdisk -Z ${DISK} # zap all on disk
+
+echo "SGDISK phase 2 in 3 Seconds ..." && sleep 1
+echo "SGDISK phase 2 in 2 Seconds ..." && sleep 1
+echo "SGDISK phase 2 in 1 Second ..." && sleep 1
 sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
 
 # create partitions
+echo "Creating BIOBOOT in 3 Seconds ..." && sleep 1
+echo "Creating BIOBOOT in 2 Seconds ..." && sleep 1
+echo "Creating BIOBOOT in 1 Second ..." && sleep 1
 sgdisk -n 1::+1M --typecode=1:ef02 --change-name=1:'BIOSBOOT' ${DISK} # partition 1 (BIOS Boot Partition)
+
+echo "Creating EFIBOOT in 3 Seconds ..." && sleep 1
+echo "Creating EFIBOOT in 2 Seconds ..." && sleep 1
+echo "Creating EFIBOOT in 1 Second ..." && sleep 1
 sgdisk -n 2::+100M --typecode=2:ef00 --change-name=2:'EFIBOOT' ${DISK} # partition 2 (UEFI Boot Partition)
+
+echo "Creating ROOT in 3 Seconds ..." && sleep 1
+echo "Creating ROOT in 2 Seconds ..." && sleep 1
+echo "Creating ROOT in 1 Second ..." && sleep 1
 sgdisk -n 3::-0 --typecode=3:8300 --change-name=3:'ROOT' ${DISK} # partition 3 (Root), default start, remaining
 if [[ ! -d "/sys/firmware/efi" ]]; then
     sgdisk -A 1:set:2 ${DISK}
