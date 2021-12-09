@@ -68,7 +68,7 @@ for PKG in "${PKGS[@]}"; do
 done
 
 # Download JDK 11
- pacman  -Suy jre11-openjdk
+sudo pacman -Suy jre11-openjdk
 # Set default java version to Java 11
 archlinux-java set java-11-openjdk
 
