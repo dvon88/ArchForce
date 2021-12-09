@@ -63,30 +63,12 @@ echo -e "\nFormatting disk...\n$HR"
 echo "--------------------------------------"
 
 # disk prep
-echo "SGDISK phase 1 in 3 Seconds ..." && sleep 1
-echo "SGDISK phase 1 in 2 Seconds ..." && sleep 1
-echo "SGDISK phase 1 in 1 Second ..." && sleep 1
 sgdisk -Z ${DISK} # zap all on disk
-
-echo "SGDISK phase 2 in 3 Seconds ..." && sleep 1
-echo "SGDISK phase 2 in 2 Seconds ..." && sleep 1
-echo "SGDISK phase 2 in 1 Second ..." && sleep 1
 sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
 
 # create partitions
-echo "Creating BIOBOOT in 3 Seconds ..." && sleep 1
-echo "Creating BIOBOOT in 2 Seconds ..." && sleep 1
-echo "Creating BIOBOOT in 1 Second ..." && sleep 1
 sgdisk -n 1::+1M --typecode=1:ef02 --change-name=1:'BIOSBOOT' ${DISK} # partition 1 (BIOS Boot Partition)
-
-echo "Creating EFIBOOT in 3 Seconds ..." && sleep 1
-echo "Creating EFIBOOT in 2 Seconds ..." && sleep 1
-echo "Creating EFIBOOT in 1 Second ..." && sleep 1
 sgdisk -n 2::+100M --typecode=2:ef00 --change-name=2:'EFIBOOT' ${DISK} # partition 2 (UEFI Boot Partition)
-
-echo "Creating ROOT in 3 Seconds ..." && sleep 1
-echo "Creating ROOT in 2 Seconds ..." && sleep 1
-echo "Creating ROOT in 1 Second ..." && sleep 1
 sgdisk -n 3::-0 --typecode=3:8300 --change-name=3:'ROOT' ${DISK} # partition 3 (Root), default start, remaining
 if [[ ! -d "/sys/firmware/efi" ]]; then
     sgdisk -A 1:set:2 ${DISK}
@@ -116,21 +98,9 @@ reboot now
 esac
   
 # mount target
-echo "Mounting in 3 Seconds ..." && sleep 1
-echo "Mounting in 2 Seconds ..." && sleep 1
-echo "Mounting in 1 Second ..." && sleep 1
 mount -t btrfs -o subvol=@ -L ROOT /mnt
-echo "MKDIR boot in 3 Seconds ..." && sleep 1
-echo "MKDIR boot in 2 Seconds ..." && sleep 1
-echo "MKDIR boot in 1 Second ..." && sleep 1
 mkdir /mnt/boot
-echo "MKDIR efi in 3 Seconds ..." && sleep 1
-echo "MKDIR efi in 2 Seconds ..." && sleep 1
-echo "MKDIR efi in 1 Second ..." && sleep 1
 mkdir /mnt/boot/efi
-echo "Mounting EFIBOOT in 3 Seconds ..." && sleep 1
-echo "Mounting EFIBOOT in 2 Seconds ..." && sleep 1
-echo "Mounting EFIBOOT in 1 Second ..." && sleep 1
 mount -t vfat -L EFIBOOT /mnt/boot/
 
 if ! grep -qs '/mnt' /proc/mounts; then
