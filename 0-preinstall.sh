@@ -98,9 +98,21 @@ reboot now
 esac
   
 # mount target
+echo "Mounting in 3 Seconds ..." && sleep 1
+echo "Mounting in 2 Seconds ..." && sleep 1
+echo "Mounting in 1 Second ..." && sleep 1
 mount -t btrfs -o subvol=@ -L ROOT /mnt
+echo "MKDIR boot in 3 Seconds ..." && sleep 1
+echo "MKDIR boot in 2 Seconds ..." && sleep 1
+echo "MKDIR boot in 1 Second ..." && sleep 1
 mkdir /mnt/boot
+echo "MKDIR efi in 3 Seconds ..." && sleep 1
+echo "MKDIR efi in 2 Seconds ..." && sleep 1
+echo "MKDIR efi in 1 Second ..." && sleep 1
 mkdir /mnt/boot/efi
+echo "Mounting EFIBOOT in 3 Seconds ..." && sleep 1
+echo "Mounting EFIBOOT in 2 Seconds ..." && sleep 1
+echo "Mounting EFIBOOT in 1 Second ..." && sleep 1
 mount -t vfat -L EFIBOOT /mnt/boot/
 
 if ! grep -qs '/mnt' /proc/mounts; then
