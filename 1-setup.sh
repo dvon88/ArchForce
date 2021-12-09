@@ -122,7 +122,7 @@ PKGS=(
 'haveged'
 'htop'
 'iptables-nft'
-'jdk-openjdk' # Java 17
+#'jdk-openjdk' # Java 17
 'kate'
 'kcodecs'
 'kcoreaddons'
