@@ -1,14 +1,14 @@
-This is a fork of ArchTitus by ChrisTitusTech (subscribe to his channel and support) that is aimed at Salesforce development. Auto-installed packages from the original were modified to remove unnecessary packages and add in the following...
-SFDX CLI (obviously)
-VSCode (not OSS code as that does not natively support the MS Marketplace extensions where SF extensions live)
-Google Chrome and Firefox (Brave does not always play well with SF in my experience)
-JDK11 (required for SF development)
-github CLI (newer github CLI, optional)
-x11-ssh-askpass (I repeatedly had issues with ssh-askpass not working, so git wouldn't work. Installed this and it works, just asks for ssh password, nbd)
-Teams
-Slack
-Google CHat
-...and others are coming as I improve on the script
+This is a fork of ArchTitus by ChrisTitusTech (subscribe to his channel and support) that is aimed at Salesforce development. Auto-installed packages from the original were modified to remove unnecessary packages and add in the following...  
+SFDX CLI (obviously)  
+VSCode (not OSS code as that does not natively support the MS Marketplace extensions where SF extensions live)  
+Google Chrome and Firefox (Brave does not always play well with SF in my experience)  
+JDK11 (required for SF development)  
+github CLI (newer github CLI, optional)  
+x11-ssh-askpass (I repeatedly had issues with ssh-askpass not working, so git wouldn't work. Installed this and it works, just asks for ssh password, nbd)  
+Teams  
+Slack  
+Google Chat  
+...and others are coming as I improve on the script  
 
 # ArchForce Installer Script
 
@@ -32,7 +32,7 @@ cd ArchForce
 
 ### System Description
 This is completely automated arch install of the KDE desktop environment on arch using various packages I typically use for Salesforce development, including some
-communcation tools.
+communcation tools.  
 
 This install stays in line with using terminal for all downloads and updates, so use ```pacman``` or ```yay``` to download/install/update programs!
 
