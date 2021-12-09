@@ -31,7 +31,8 @@ cd ArchForce
 ```
 
 ### System Description
-This is completely automated arch install of the KDE desktop environment on arch using all the packages I use on a daily basis. 
+This is completely automated arch install of the KDE desktop environment on arch using various packages I typically use for Salesforce development, including some
+communcation tools.
 
 ## Troubleshooting
 
