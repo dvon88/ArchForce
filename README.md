@@ -6,9 +6,7 @@ JDK11 (required for SF development)
 x11-ssh-askpass (I repeatedly had issues with ssh-askpass not working, so git wouldn't work. Installed this and it works, just asks for ssh password, nbd)
 ...and others are coming as I improve on the script
 
-# ArchTitus Installer Script
-
-<img src="https://i.imgur.com/YiNMnan.png" />
+# ArchForce Installer Script
 
 This README contains the steps I do to install and configure a fully-functional Arch Linux installation containing a desktop environment, all the support packages (network, bluetooth, audio, printers, etc.), along with all my preferred applications and utilities. The shell scripts in this repo allow the entire process to be automated.)
 
@@ -17,8 +15,6 @@ This README contains the steps I do to install and configure a fully-functional 
 
 Download ArchISO from <https://archlinux.org/download/> and put on a USB drive with [Etcher](https://www.balena.io/etcher/), [Ventoy](https://www.ventoy.net/en/index.html), or [Rufus](https://rufus.ie/en/)
 
-If you don't want to build using this script I did create an image @ <https://www.christitus.com/arch-titus>
-
 ## Boot Arch ISO
 
 From initial Prompt type the following commands:
@@ -26,8 +22,8 @@ From initial Prompt type the following commands:
 ```
 pacman -Sy git
 git clone https://github.com/ChrisTitusTech/ArchTitus
-cd ArchTitus
-./archtitus.sh
+cd ArchForce
+./archforce.sh
 ```
 
 ### System Description
