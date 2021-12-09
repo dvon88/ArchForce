@@ -57,9 +57,6 @@ echo "THIS WILL FORMAT AND DELETE ALL DATA ON THE DISK"
 read -p "are you sure you want to continue (Y/N):" formatdisk
 case $formatdisk in
 
-echo "Formatting disk in 3 Seconds ..." && sleep 1
-echo "Formatting disk in 2 Seconds ..." && sleep 1
-echo "Formatting disk in 1 Second ..." && sleep 1
 y|Y|yes|Yes|YES)
 echo "--------------------------------------"
 echo -e "\nFormatting disk...\n$HR"
