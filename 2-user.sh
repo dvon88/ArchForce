@@ -72,6 +72,18 @@ sudo pacman -Suy jre11-openjdk --noconfirm --needed
 # Set default java version to Java 11
 archlinux-java set java-11-openjdk
 
+# Install extensions for VSCode
+code --isntall-extension dbaeumer.vscode-eslint
+code --install-extension salesforce.salesforce-vscode-slds
+code --install-extension salesforce.salesforcedx-vscode-apex
+code --install-extension salesforce.salesforcedx-vscode-apex-replay-debugger
+code --install-extension salesforce.salesforcedx-vscode-core
+code --install-extension salesforce.salesforcedx-vscode-lightning
+code --install-extension salesforce.salesforcedx-vscode-soql
+code --install-extension salesforce.salesforcedx-vscode-visualforce
+code --install-extension eamodio.gitlens
+code --install-extension mhutchie.git-graph
+
 export PATH=$PATH:~/.local/bin
 cp -r $HOME/ArchForce/dotfiles/* $HOME/.config/
 pip install konsave
