@@ -4,7 +4,6 @@ VSCode (not OSS code as that does not natively support the MS Marketplace extens
 <<<<<<< HEAD
 Salesforce Extension Pack for VSCode
 =======
-Salesforce Extension Pack for VSCode  
 >>>>>>> ab9e427ccf40737206382d677f44ee2946dd280a
 Google Chrome and Firefox (Brave does not always play well with SF in my experience)  
 JDK11 (required for SF development)  
