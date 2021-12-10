@@ -33,7 +33,7 @@ git clone https://github.com/dvon88/ArchForce
 cd ArchForce
 ./archforce.sh
 ```
-About halfway through, you will be prompted for your username, password, and hostname. At the end, use ```reboot```, then selecte Boot Existing OS.  
+About halfway through, you will be prompted for your username, password, and hostname. At the end, use ```reboot```, then select Boot Existing OS.  
 To finalize VSCode setup, open your User Settings and set the Java home under Salesforce Extension settings to your Java home location.  
 This should be something like ```/usr/lib/jvm/java-11-openjdk```  
 
