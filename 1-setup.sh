@@ -121,6 +121,7 @@ PKGS=(
 'gwenview'
 'haveged'
 'htop'
+'intellij-idea-community-edition'
 'iptables-nft'
 #'jdk-openjdk' # Java 17
 #'jdk'
@@ -143,7 +144,6 @@ PKGS=(
 'linux-firmware'
 'linux-headers'
 'lsof'
-#'lutris' # Gaming not needed
 'lzop'
 'm4'
 'make'
@@ -181,7 +181,6 @@ PKGS=(
 'sddm-kcm'
 'snapper'
 'spectacle'
-#'steam' # Gaming not needed
 'sudo'
 'swtpm'
 'synergy'
