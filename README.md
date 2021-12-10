@@ -1,3 +1,5 @@
+NEXT STEP: Get Java home set in VSCode for Salesforce extensions automatically
+
 Automated script to fully install Arch Linux as well as many tools for Salesforce developers. Download an Arch ISO, boot it, install git, clone the script and run it.  
 This will install JDK 11, the Salesforce CLI, VSCode, and the Salesforce Extension Pack for VSCode all automatically as well as some other programs to aid. All you will have to do is set your Java home within the Salesforce extension settings, then log into an org, and you are ready to go!  
 SFDX CLI (obviously)  
@@ -31,6 +33,9 @@ git clone https://github.com/dvon88/ArchForce
 cd ArchForce
 ./archforce.sh
 ```
+About halfway through, you will be prompted for your username, password, and hostname. At the end, use ```reboot```, then selecte Boot Existing OS.  
+To finalize VSCode setup, open your User Settings and set the Java home under Salesforce Extension settings to your Java home location.  
+This should be something like ```/usr/lib/jvm/java-11-openjdk```  
 
 ### System Description
 This is completely automated arch install of the KDE desktop environment on arch using various packages I typically use for Salesforce development, including some
