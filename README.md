@@ -1,4 +1,5 @@
-This is a fork of ArchTitus by ChrisTitusTech (subscribe to his channel and support) that is aimed at Salesforce development. Auto-installed packages from the original were modified to remove unnecessary packages and add in the following...  
+Automated script to fully install Arch Linux as well as many tools for Salesforce developers. Download an Arch ISO, boot it, install git, clone the script and run it.  
+This will install JDK 11, the Salesforce CLI, VSCode, and the Salesforce Extension Pack for VSCode all automatically as well as some other programs to aid. All you will have to do is set your Java home within the Salesforce extension settings, then log into an org, and you are ready to go!  
 SFDX CLI (obviously)  
 VSCode (not OSS code as that does not natively support the MS Marketplace extensions where SF extensions live)  
 Google Chrome and Firefox (Brave does not always play well with SF in my experience)  
@@ -55,5 +56,6 @@ __[Arch Linux Installation Guide](https://github.com/rickellis/Arch-Linux-Instal
 
 ## Credits
 
+- Original script was built by ChrisTitusTech (subscribe to his YouTube and support!). This is a forked version of that
 - Original packages script was a post install cleanup script called ArchMatic located here: https://github.com/rickellis/ArchMatic
 - Thank you to all the folks that helped during the creation from YouTube Chat! Here are all those Livestreams showing the creation: <https://www.youtube.com/watch?v=IkMCtkDIhe8&list=PLc7fktTRMBowNaBTsDHlL6X3P3ViX3tYg>
