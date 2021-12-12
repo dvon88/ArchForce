@@ -35,7 +35,7 @@ PKGS=(
 'firefox'
 'github-desktop-bin' # Github Desktop sync
 'google-chrome' # Google Chrome for best Salesforce compatibility
-'intellij-idea-community-edition'
+# 'intellij-idea-community-edition'
 'lightly-git'
 'lightlyshaders-git'
 'mangohud' # Gaming FPS Counter
@@ -55,7 +55,7 @@ PKGS=(
 'ttf-hack'
 'ttf-meslo' # Nerdfont package
 'ttf-roboto'
-'visual-studio-code-bin'
+# 'visual-studio-code-bin'
 # 'zoom' # video conferences
 'snap-pac'
 # 'slack'
@@ -72,17 +72,35 @@ sudo pacman -Suy jre11-openjdk --noconfirm --needed
 # Set default java version to Java 11
 archlinux-java set java-11-openjdk
 
+# Select IDE for development
+echo '----------------------------------'
+echo 'Choose your IDE'
+echo '1 = VSCode 2 = IntelliJ IDEA 3 = both'
+read -p 'Selection: ' IDE_SELECTION
+echo '----------------------------------'
+
+if [ $IDE_SELECTION == 1 ]
+then echo 'You chose VSCode'
+bash install_vscode.sh
+elif [ $IDE_SELECTION == 2 ]
+then echo 'You chose IDEA'
+bash install_intellij.sh
+else echo 'You chose both'
+bash install_vscode.sh
+bash install_intellij.sh
+fi
+
 # Install extensions for VSCode
-code --isntall-extension dbaeumer.vscode-eslint
-code --install-extension salesforce.salesforce-vscode-slds
-code --install-extension salesforce.salesforcedx-vscode-apex
-code --install-extension salesforce.salesforcedx-vscode-apex-replay-debugger
-code --install-extension salesforce.salesforcedx-vscode-core
-code --install-extension salesforce.salesforcedx-vscode-lightning
-code --install-extension salesforce.salesforcedx-vscode-soql
-code --install-extension salesforce.salesforcedx-vscode-visualforce
-code --install-extension eamodio.gitlens
-code --install-extension mhutchie.git-graph
+# code --isntall-extension dbaeumer.vscode-eslint
+# code --install-extension salesforce.salesforce-vscode-slds
+# code --install-extension salesforce.salesforcedx-vscode-apex
+# code --install-extension salesforce.salesforcedx-vscode-apex-replay-debugger
+# code --install-extension salesforce.salesforcedx-vscode-core
+# code --install-extension salesforce.salesforcedx-vscode-lightning
+# code --install-extension salesforce.salesforcedx-vscode-soql
+# code --install-extension salesforce.salesforcedx-vscode-visualforce
+# code --install-extension eamodio.gitlens
+# code --install-extension mhutchie.git-graph
 
 export PATH=$PATH:~/.local/bin
 cp -r $HOME/ArchForce/dotfiles/* $HOME/.config/
