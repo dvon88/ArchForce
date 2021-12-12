@@ -12,8 +12,6 @@ JDK11 (required for SF development)
 github CLI (newer github CLI, optional)  
 x11-ssh-askpass (I repeatedly had issues with ssh-askpass not working, so git wouldn't work. Installed this and it works, just asks for ssh password, nbd)  
 Teams  
-Slack  
-Google Chat  
 Timeshift  
 ...and others are coming as I improve on the script  
 
