@@ -35,6 +35,7 @@ PKGS=(
 'firefox'
 'github-desktop-bin' # Github Desktop sync
 'google-chrome' # Google Chrome for best Salesforce compatibility
+'intellij-idea-community-edition'
 'lightly-git'
 'lightlyshaders-git'
 'mangohud' # Gaming FPS Counter
@@ -55,11 +56,10 @@ PKGS=(
 'ttf-meslo' # Nerdfont package
 'ttf-roboto'
 'visual-studio-code-bin'
-'zoom' # video conferences
+# 'zoom' # video conferences
 'snap-pac'
-'slack'
+# 'slack'
 'teams'
-'google-chat'
 'timeshift'
 )
 

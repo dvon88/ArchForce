@@ -121,7 +121,6 @@ PKGS=(
 'gwenview'
 'haveged'
 'htop'
-'intellij-idea-community-edition'
 'iptables-nft'
 #'jdk-openjdk' # Java 17
 #'jdk'
