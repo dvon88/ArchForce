@@ -1,7 +1,5 @@
 #!/bin/bash
 
-    pacman -Sy --noconfirm --needed cmatrix
-    cmatrix && sleep 5
     bash 0-preinstall.sh 
     arch-chroot /mnt /root/ArchForce/1-setup.sh  
     source /mnt/root/ArchForce/install.conf
