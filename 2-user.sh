@@ -36,15 +36,15 @@ PKGS=(
 'github-desktop-bin' # Github Desktop sync
 'google-chrome' # Google Chrome for best Salesforce compatibility
 # 'intellij-idea-community-edition'
-'lightly-git'
-'lightlyshaders-git'
-'mangohud' # Gaming FPS Counter
-'mangohud-common'
+'lightly-git' # KDE Theme
+'lightlyshaders-git' # KDE theming
+# 'mangohud' # Gaming FPS Counter
+# 'mangohud-common'
 'nerd-fonts-fira-code'
-'nordic-darker-standard-buttons-theme'
-'nordic-darker-theme'
-'nordic-kde-git'
-'nordic-theme'
+'nordic-darker-standard-buttons-theme' # KDE theming
+'nordic-darker-theme' # KDE theming
+'nordic-kde-git' # KDE theming
+'nordic-theme' # KDE theming
 'noto-fonts-emoji'
 'papirus-icon-theme'
 'plasma-pa'
@@ -75,19 +75,50 @@ archlinux-java set java-11-openjdk
 # Select IDE for development
 echo '----------------------------------'
 echo 'Choose your IDE'
-echo '1 = VSCode 2 = IntelliJ IDEA 3 = both'
+echo '1 = VSCode 2 = IntelliJ IDEA Anything else = both'
 read -p 'Selection: ' IDE_SELECTION
 echo '----------------------------------'
 
+# TODO: move IDE installations to separate script files to cut down on code size
 if [ $IDE_SELECTION == 1 ]
 then echo 'You chose VSCode'
-bash install_vscode.sh
+# bash install_vscode.sh
+# Install VSCode
+yay -S --noconfirm visual-studio-code-bin
+# Install extensions for VSCode
+code --isntall-extension dbaeumer.vscode-eslint
+code --install-extension salesforce.salesforce-vscode-slds
+code --install-extension salesforce.salesforcedx-vscode-apex
+code --install-extension salesforce.salesforcedx-vscode-apex-replay-debugger
+code --install-extension salesforce.salesforcedx-vscode-core
+code --install-extension salesforce.salesforcedx-vscode-lightning
+code --install-extension salesforce.salesforcedx-vscode-soql
+code --install-extension salesforce.salesforcedx-vscode-visualforce
+code --install-extension eamodio.gitlens
+code --install-extension mhutchie.git-graph
+
 elif [ $IDE_SELECTION == 2 ]
 then echo 'You chose IDEA'
-bash install_intellij.sh
+# bash install_intellij.sh
+yay -S --noconfirm intellij-idea-community-edition
 else echo 'You chose both'
-bash install_vscode.sh
-bash install_intellij.sh
+# bash install_vscode.sh
+# Install VSCode
+yay -S --noconfirm visual-studio-code-bin
+# Install extensions for VSCode
+code --isntall-extension dbaeumer.vscode-eslint
+code --install-extension salesforce.salesforce-vscode-slds
+code --install-extension salesforce.salesforcedx-vscode-apex
+code --install-extension salesforce.salesforcedx-vscode-apex-replay-debugger
+code --install-extension salesforce.salesforcedx-vscode-core
+code --install-extension salesforce.salesforcedx-vscode-lightning
+code --install-extension salesforce.salesforcedx-vscode-soql
+code --install-extension salesforce.salesforcedx-vscode-visualforce
+code --install-extension eamodio.gitlens
+code --install-extension mhutchie.git-graph
+
+# bash install_intellij.sh
+yay -S --noconfirm intellij-idea-community-edition
 fi
 
 # Install extensions for VSCode
