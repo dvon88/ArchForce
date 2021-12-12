@@ -25,6 +25,8 @@ Download ArchISO from <https://archlinux.org/download/> and put on a USB drive w
 
 ## Boot Arch ISO
 
+Please make sure you have 20gb of free space for installation! This will change in the future during development, but for now keep this in mind!
+
 From initial Prompt type the following commands:
 
 ```
