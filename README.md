@@ -1,4 +1,6 @@
-NEXT STEP: Get Java home set in VSCode for Salesforce extensions automatically
+NEXT STEPS: Get Java home set in VSCode for Salesforce extensions automatically  
+Implement choice between VSCode and IntelliJ for IDE selection  
+Implement desktop environment/window manager selection  
 
 Automated script to fully install Arch Linux as well as many tools for Salesforce developers. Download an Arch ISO, boot it, install git, clone the script and run it.  
 This will install JDK 11, the Salesforce CLI, VSCode, and the Salesforce Extension Pack for VSCode all automatically as well as some other programs to aid. All you will have to do is set your Java home within the Salesforce extension settings, then log into an org, and you are ready to go!  
