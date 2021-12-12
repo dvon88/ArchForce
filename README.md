@@ -6,6 +6,7 @@ Automated script to fully install Arch Linux as well as many tools for Salesforc
 This will install JDK 11, the Salesforce CLI, VSCode, and the Salesforce Extension Pack for VSCode all automatically as well as some other programs to aid. All you will have to do is set your Java home within the Salesforce extension settings, then log into an org, and you are ready to go!  
 SFDX CLI (obviously)  
 VSCode (not OSS code as that does not natively support the MS Marketplace extensions where SF extensions live)  
+IntelliJ IDEA  
 Google Chrome and Firefox (Brave does not always play well with SF in my experience)  
 JDK11 (required for SF development)  
 github CLI (newer github CLI, optional)  
