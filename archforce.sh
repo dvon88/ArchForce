@@ -1,7 +1,4 @@
 #!/bin/bash
-
-    cmatrix -C red -s && sleep 5
-    s
     bash 0-preinstall.sh 
     arch-chroot /mnt /root/ArchForce/1-setup.sh  
     source /mnt/root/ArchForce/install.conf
