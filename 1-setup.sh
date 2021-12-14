@@ -74,6 +74,7 @@ echo -e "\nInstalling Base System\n"
 
 # Select IDE for development
 echo '----------------------------------'
+pwd
 echo 'Choose your IDE'
 echo '1 = VSCode 2 = IntelliJ IDEA Anything else = both'
 read -p 'Selection: ' IDE_SELECTION
