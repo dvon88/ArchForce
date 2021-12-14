@@ -71,48 +71,6 @@ sudo pacman -Suy jre11-openjdk --noconfirm --needed
 # Set default java version to Java 11
 archlinux-java set java-11-openjdk
 
-# Select IDE for development
-echo '----------------------------------'
-echo 'Choose your IDE'
-echo '1 = VSCode 2 = IntelliJ IDEA Anything else = both'
-read -p 'Selection: ' IDE_SELECTION
-echo '----------------------------------'
-
-# TODO: move IDE installations to separate script files to cut down on code size
-if [ $IDE_SELECTION == 1 ]
-then echo 'You chose VSCode'
-# Install VSCode
-bash ~/ArchForce/install_vscode.sh
-# yay -S --noconfirm visual-studio-code-bin
-# Install extensions for VSCode
-code --isntall-extension dbaeumer.vscode-eslint
-code --install-extension salesforce.salesforcedx-vscode
-code --install-extension eamodio.gitlens
-code --install-extension mhutchie.git-graph
-code --install-extension chuckjonas.apex-pmd
-code --install-extension esbenp.prettier-vscode
-
-elif [ $IDE_SELECTION == 2 ]
-then echo 'You chose IDEA'
-bash ~/ArchForce/install_intellij.sh
-# yay -S --noconfirm intellij-idea-community-edition
-else echo 'You chose both'
-# Install VSCode
-bash ~/ArchForce/install_vscode.sh
-bash ~/ArchForce/install_intellij.sh
-# yay -S --noconfirm visual-studio-code-bin
-# Install extensions for VSCode
-code --isntall-extension dbaeumer.vscode-eslint
-code --install-extension salesforce.salesforcedx-vscode
-code --install-extension eamodio.gitlens
-code --install-extension mhutchie.git-graph
-code --install-extension chuckjonas.apex-pmd
-code --install-extension esbenp.prettier-vscode
-
-# yay -S --noconfirm intellij-idea-community-edition
-fi
-sleep 60
-
 export PATH=$PATH:~/.local/bin
 cp -r $HOME/ArchForce/dotfiles/* $HOME/.config/
 pip install konsave
@@ -126,6 +84,25 @@ wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/
 mkdir ~/sfdx
 tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
 echo "PATH=~/sfdx/bin:$PATH" >> ~/.bashrc
+
+# Select IDE for development
+echo '----------------------------------'
+echo 'Choose your IDE'
+echo '1 = VSCode 2 = IntelliJ IDEA Anything else = both'
+read -p 'Selection: ' IDE_SELECTION
+echo '----------------------------------'
+
+if [ $IDE_SELECTION == 1 ]
+then echo 'You chose VSCode'
+# Install VSCode
+bash ~/ArchForce/install_vscode.sh
+elif [ $IDE_SELECTION == 2 ]
+then echo 'You chose IDEA'
+bash ~/ArchForce/install_intellij.sh
+else echo 'You chose both'
+bash ~/ArchForce/install_vscode.sh
+bash ~/ArchForce/install_intellij.sh
+fi
 
 echo -e "\nDone!\n"
 exit
