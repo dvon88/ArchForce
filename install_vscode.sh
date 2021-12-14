@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install VSCode
-yay -S --noconfirm visual-studio-code-bin
+yay -S --noconfirm --needed visual-studio-code-bin
 # Install extensions for VSCode
 code --isntall-extension dbaeumer.vscode-eslint
 code --install-extension salesforce.salesforce-vscode-slds

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-yay -S --noconfirm intellij-idea-community-edition
+yay -S --noconfirm --needed intellij-idea-community-edition
