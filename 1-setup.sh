@@ -83,7 +83,7 @@ echo '----------------------------------'
 if [ $IDE_SELECTION == 1 ]
 then echo 'You chose VSCode'
 # Install VSCode
-bash ~/.ArchForce/install_vscode.sh
+bash ~/ArchForce/install_vscode.sh
 # yay -S --noconfirm visual-studio-code-bin
 # Install extensions for VSCode
 code --isntall-extension dbaeumer.vscode-eslint
