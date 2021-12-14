@@ -65,6 +65,20 @@ pacman -Sy --noconfirm
 
 echo -e "\nInstalling Base System\n"
 
+
+
+
+
+
+
+
+# Select IDE for development
+echo '----------------------------------'
+echo 'Choose your IDE'
+echo '1 = VSCode 2 = IntelliJ IDEA Anything else = both'
+read -p 'Selection: ' IDE_SELECTION
+echo '----------------------------------'
+
 # TODO: move IDE installations to separate script files to cut down on code size
 if [ $IDE_SELECTION == 1 ]
 then echo 'You chose VSCode'
@@ -100,6 +114,13 @@ code --install-extension esbenp.prettier-vscode
 fi
 
 sleep 60
+
+
+
+
+
+
+
 
 
 PKGS=(
