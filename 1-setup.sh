@@ -65,65 +65,6 @@ pacman -Sy --noconfirm
 
 echo -e "\nInstalling Base System\n"
 
-
-
-
-
-
-
-
-# Select IDE for development
-echo '----------------------------------'
-pwd
-echo 'Choose your IDE'
-echo '1 = VSCode 2 = IntelliJ IDEA Anything else = both'
-read -p 'Selection: ' IDE_SELECTION
-echo '----------------------------------'
-
-# TODO: move IDE installations to separate script files to cut down on code size
-if [ $IDE_SELECTION == 1 ]
-then echo 'You chose VSCode'
-# Install VSCode
-bash ~/ArchForce/install_vscode.sh
-# yay -S --noconfirm visual-studio-code-bin
-# Install extensions for VSCode
-code --isntall-extension dbaeumer.vscode-eslint
-code --install-extension salesforce.salesforcedx-vscode
-code --install-extension eamodio.gitlens
-code --install-extension mhutchie.git-graph
-code --install-extension chuckjonas.apex-pmd
-code --install-extension esbenp.prettier-vscode
-
-elif [ $IDE_SELECTION == 2 ]
-then echo 'You chose IDEA'
-bash install_intellij.sh
-# yay -S --noconfirm intellij-idea-community-edition
-else echo 'You chose both'
-# Install VSCode
-bash install_vscode.sh
-bash install_intellij.sh
-# yay -S --noconfirm visual-studio-code-bin
-# Install extensions for VSCode
-code --isntall-extension dbaeumer.vscode-eslint
-code --install-extension salesforce.salesforcedx-vscode
-code --install-extension eamodio.gitlens
-code --install-extension mhutchie.git-graph
-code --install-extension chuckjonas.apex-pmd
-code --install-extension esbenp.prettier-vscode
-
-# yay -S --noconfirm intellij-idea-community-edition
-fi
-
-sleep 60
-
-
-
-
-
-
-
-
-
 PKGS=(
 'mesa' # Essential Xorg First
 'xorg'

@@ -81,9 +81,9 @@ echo '----------------------------------'
 # TODO: move IDE installations to separate script files to cut down on code size
 if [ $IDE_SELECTION == 1 ]
 then echo 'You chose VSCode'
-# bash install_vscode.sh
 # Install VSCode
-yay -S --noconfirm visual-studio-code-bin
+bash ~/ArchForce/install_vscode.sh
+# yay -S --noconfirm visual-studio-code-bin
 # Install extensions for VSCode
 code --isntall-extension dbaeumer.vscode-eslint
 code --install-extension salesforce.salesforcedx-vscode
@@ -94,12 +94,13 @@ code --install-extension esbenp.prettier-vscode
 
 elif [ $IDE_SELECTION == 2 ]
 then echo 'You chose IDEA'
-# bash install_intellij.sh
-yay -S --noconfirm intellij-idea-community-edition
+bash ~/ArchForce/install_intellij.sh
+# yay -S --noconfirm intellij-idea-community-edition
 else echo 'You chose both'
-# bash install_vscode.sh
 # Install VSCode
-yay -S --noconfirm visual-studio-code-bin
+bash ~/ArchForce/install_vscode.sh
+bash ~/ArchForce/install_intellij.sh
+# yay -S --noconfirm visual-studio-code-bin
 # Install extensions for VSCode
 code --isntall-extension dbaeumer.vscode-eslint
 code --install-extension salesforce.salesforcedx-vscode
@@ -108,9 +109,9 @@ code --install-extension mhutchie.git-graph
 code --install-extension chuckjonas.apex-pmd
 code --install-extension esbenp.prettier-vscode
 
-# bash install_intellij.sh
-yay -S --noconfirm intellij-idea-community-edition
+# yay -S --noconfirm intellij-idea-community-edition
 fi
+sleep 60
 
 export PATH=$PATH:~/.local/bin
 cp -r $HOME/ArchForce/dotfiles/* $HOME/.config/
