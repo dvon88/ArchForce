@@ -57,6 +57,7 @@ PKGS=(
 'snap-pac'
 # 'slack'
 'teams'
+'ttf-fira-code'
 'timeshift'
 )
 
