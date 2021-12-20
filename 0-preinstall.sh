@@ -91,9 +91,7 @@ umount /mnt
 ;;
 *)
 
-cryptsetup -y -v luksFormat "${DISK}"
-
-sleep 60
+cryptsetup -y -v luksFormat "${DISK}" && sleep 60
 
 echo "Rebooting in 3 Seconds ..." && sleep 1
 echo "Rebooting in 2 Seconds ..." && sleep 1
