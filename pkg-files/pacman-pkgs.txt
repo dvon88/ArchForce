@@ -13,6 +13,7 @@ ark
 audiocd-kio
 autoconf
 automake
+awesome-terminal-fonts
 base
 bash-completion
 bind
@@ -28,7 +29,6 @@ bridge-utils
 btrfs-progs
 celluloid
 cmatrix
-code
 cronie
 cups
 dialog
@@ -49,6 +49,7 @@ gamemode
 gcc
 gimp
 git
+github-cli
 gparted
 gptfdisk
 grub
@@ -60,7 +61,6 @@ gwenview
 haveged
 htop
 iptables-nft
-jdk-openjdk
 kate
 kcodecs
 kcoreaddons
@@ -80,7 +80,6 @@ linux
 linux-firmware
 linux-headers
 lsof
-lutris
 lzop
 m4
 make
@@ -88,6 +87,7 @@ milou
 nano
 neofetch
 networkmanager
+noto-fonts-emoji
 ntfs-3g
 ntp
 okular
@@ -97,10 +97,12 @@ os-prober
 oxygen
 p7zip
 pacman-contrib
+papirus-icon-theme
 patch
 picom
 pkgconf
 plasma-nm
+plasma-pa
 powerdevil
 powerline-fonts
 print-manager
@@ -116,14 +118,17 @@ rsync
 sddm
 sddm-kcm
 snapper
+snap-pac
 spectacle
-steam
 sudo
 swtpm
 synergy
 systemsettings
 terminus-font
 traceroute
+ttf-droid
+ttf-hack
+ttf-roboto
 ufw
 unrar
 unzip
@@ -138,6 +143,7 @@ wine-mono
 winetricks
 xdg-desktop-portal-kde
 xdg-user-dirs
+x11-ssh-askpass
 zeroconf-ioslave
 zip
 zsh
