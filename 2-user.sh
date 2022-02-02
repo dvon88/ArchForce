@@ -19,16 +19,18 @@ source $HOME/ArchForce/setup.conf
 
 cd ~
 git clone "https://aur.archlinux.org/yay.git"
-cd ~/yay && sleep 15
+cd ~/yay && pwd && sleep 15
 makepkg -si --noconfirm && sleep 15
-cd ~
+cd ~ && pwd && sleep 15
 touch "~/.cache/zshhistory"
 git clone "https://github.com/ChrisTitusTech/zsh"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 ln -s "~/zsh/.zshrc" ~/.zshrc
 
+echo -n "Installing AUR packages..." && sleept 5
 yay -S --noconfirm --needed - < ~/ArchForce/pkg-files/aur-pkgs.txt
 
+echo -n "Installing Konsave..." && sleep 5
 export PATH=$PATH:~/.local/bin
 cp -r ~/ArchForce/dotfiles/* ~/.config/
 pip install konsave
@@ -53,7 +55,7 @@ echo '----------------------------------'
 if [ $IDE_SELECTION == 1 ]
 then echo 'You chose VSCode'
 # Install VSCode
-bash ~/ArchForce/install_vscode.sh
+bash ~/ArchForce/install_vscode.sh && sleep 5
 elif [ $IDE_SELECTION == 2 ]
 then echo 'You chose IDEA'
 bash ~/ArchForce/install_intellij.sh
