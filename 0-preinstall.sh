@@ -16,6 +16,7 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 echo "-------------------------------------------------"
 echo "Setting up mirrors for optimal download          "
 echo "-------------------------------------------------"
+source setup.conf
 iso=$(curl -4 ifconfig.co/country-iso)
 timedatectl set-ntp true
 pacman -S --noconfirm pacman-contrib terminus-font
@@ -42,27 +43,18 @@ Setting up mirrors for optimal download
 "
 
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
-mkdir /mnt
-
-
-echo -e "\nInstalling prereqs...\n$HR"
+mkdir /mnt &>/dev/null # Hiding error message if any
+echo -ne "
+-------------------------------------------------------------------------
+                    Installing Prerequisites
+-------------------------------------------------------------------------
+"
 pacman -S --noconfirm gptfdisk btrfs-progs
-
-echo "-------------------------------------------------"
-echo "-------select your disk to format----------------"
-echo "-------------------------------------------------"
-lsblk
-echo "Please enter disk to work on: (example /dev/sda)"
-read DISK
-echo "THIS WILL FORMAT AND DELETE ALL DATA ON THE DISK"
-read -p "are you sure you want to continue (Y/N):" formatdisk
-case $formatdisk in
-
-y|Y|yes|Yes|YES)
-echo "--------------------------------------"
-echo -e "\nFormatting disk...\n$HR"
-echo "--------------------------------------"
-
+echo -ne "
+-------------------------------------------------------------------------
+                    Formating Disk
+-------------------------------------------------------------------------
+"
 # disk prep
 sgdisk -Z ${DISK} # zap all on disk
 sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
@@ -71,10 +63,22 @@ sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
 sgdisk -n 1::+1M --typecode=1:ef02 --change-name=1:'BIOSBOOT' ${DISK} # partition 1 (BIOS Boot Partition)
 sgdisk -n 2::+300M --typecode=2:ef00 --change-name=2:'EFIBOOT' ${DISK} # partition 2 (UEFI Boot Partition)
 sgdisk -n 3::-0 --typecode=3:8300 --change-name=3:'ROOT' ${DISK} # partition 3 (Root), default start, remaining
-if [[ ! -d "/sys/firmware/efi" ]]; then
+if [[ ! -d "/sys/firmware/efi" ]]; then # Checking for bios system
     sgdisk -A 1:set:2 ${DISK}
 fi
-
+# make filesystems
+echo -ne "
+-------------------------------------------------------------------------
+                    Creating Filesystems
+-------------------------------------------------------------------------
+"
+createsubvolumes () {
+    btrfs subvolume create /mnt/@
+    btrfs subvolume create /mnt/@home
+    btrfs subvolume create /mnt/@var
+    btrfs subvolume create /mnt/@tmp
+    btrfs subvolume create /mnt/@.snapshots
+}
 mountallsubvol () {
     mount -o ${mountoptions},subvol=@home /dev/mapper/ROOT /mnt/home
     mount -o ${mountoptions},subvol=@tmp /dev/mapper/ROOT /mnt/tmp
@@ -125,20 +129,10 @@ if [[ ${FS} =~ "btrfs" ]]; then
 ls /mnt | xargs btrfs subvolume delete
 btrfs subvolume create /mnt/@
 umount /mnt
-;;
-*)
-
-cryptsetup -y -v luksFormat "${DISK}" && sleep 60
-
-echo "Rebooting in 3 Seconds ..." && sleep 1
-echo "Rebooting in 2 Seconds ..." && sleep 1
-echo "Rebooting in 1 Second ..." && sleep 1
-reboot now
-;;
-esac
-  
-# mount target
 mount -t btrfs -o subvol=@ -L ROOT /mnt
+fi
+
+# mount target
 mkdir /mnt/boot
 mkdir /mnt/boot/efi
 mount -t vfat -L EFIBOOT /mnt/boot/
@@ -150,23 +144,28 @@ if ! grep -qs '/mnt' /proc/mounts; then
     echo "Rebooting in 1 Second ..." && sleep 1
     reboot now
 fi
-
-echo "--------------------------------------"
-echo "-- Arch Install on Main Drive       --"
-echo "--------------------------------------"
+echo -ne "
+-------------------------------------------------------------------------
+                    Arch Install on Main Drive
+-------------------------------------------------------------------------
+"
 pacstrap /mnt base base-devel linux linux-firmware vim nano sudo archlinux-keyring wget libnewt --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp -R ${SCRIPT_DIR} /mnt/root/ArchForce
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
-echo "--------------------------------------"
-echo "--GRUB BIOS Bootloader Install&Check--"
-echo "--------------------------------------"
+echo -ne "
+-------------------------------------------------------------------------
+                    GRUB BIOS Bootloader Install & Check
+-------------------------------------------------------------------------
+"
 if [[ ! -d "/sys/firmware/efi" ]]; then
     grub-install --boot-directory=/mnt/boot ${DISK}
 fi
-echo "--------------------------------------"
-echo "-- Check for low memory systems <8G --"
-echo "--------------------------------------"
+echo -ne "
+-------------------------------------------------------------------------
+                    Checking for low memory systems <8G
+-------------------------------------------------------------------------
+"
 TOTALMEM=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
 if [[  $TOTALMEM -lt 8000000 ]]; then
     # Put swap into the actual system, not into RAM disk, otherwise there is no point in it, it'll cache RAM into RAM. So, /mnt/ everything.
