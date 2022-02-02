@@ -19,8 +19,8 @@ source $HOME/ArchForce/setup.conf
 
 cd ~
 git clone "https://aur.archlinux.org/yay.git"
-cd ~/yay
-makepkg -si --noconfirm
+cd ~/yay && sleep 15
+makepkg -si --noconfirm && sleep 15
 cd ~
 touch "~/.cache/zshhistory"
 git clone "https://github.com/ChrisTitusTech/zsh"
