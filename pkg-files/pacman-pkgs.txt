@@ -50,6 +50,7 @@ gcc
 gimp
 git
 github-cli
+go
 gparted
 gptfdisk
 grub
