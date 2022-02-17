@@ -28,7 +28,22 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 ln -s "~/zsh/.zshrc" ~/.zshrc
 
 echo -n "Installing AUR packages..."
-yay -S --noconfirm --needed - < ~/ArchForce/pkg-files/aur-pkgs.txt
+addAUR () {
+  cd ~
+  git clone "https://aur.archlinux.org/$1.git"
+  cd ~/$1
+  makepkg -si --noconfirm
+  cd ~
+}
+
+if [ "$AURHELPER" != "" ]; then
+  addAUR ${AURHELPER}
+fi
+
+for PACKAGE in $(cat ~/ArchTitus/pkg-files/aur-pkgs.txt) do
+  addAUR $PACKAGE
+esac
+# yay -S --noconfirm --needed - < ~/ArchForce/pkg-files/aur-pkgs.txt
 
 echo -n "Installing Konsave..."
 export PATH=$PATH:~/.local/bin
